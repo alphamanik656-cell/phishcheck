@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishCheck</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>🎣 PhishCheck</h1>
+      <p class="subtitle">Paste a suspicious email below and get an instant breakdown of exactly what looks off — or confirmation it's safe.</p>
+    </header>
+
+    <section class="input-panel">
+      <textarea id="emailInput" placeholder="Paste the full email here (headers, body, links — the more context, the better the analysis)..."></textarea>
+      <div class="samples">
+        <span class="samples-label">Try a sample:</span>
+        <div id="sampleButtons" class="sample-buttons"></div>
+      </div>
+      <div class="actions">
+        <span id="charCount" class="char-count">0 / 20,000</span>
+        <button id="analyzeBtn">Analyze Email</button>
+      </div>
+    </section>
+
+    <section id="statusBanner" class="status-banner hidden"></section>
+
+    <section id="resultPanel" class="result-panel hidden">
+      <div id="riskGauge" class="risk-gauge hidden">
+        <div class="risk-gauge-track">
+          <div id="riskGaugeFill" class="risk-gauge-fill"></div>
+        </div>
+        <span id="riskGaugeLabel" class="risk-gauge-label"></span>
+      </div>
+      <div id="resultContent"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
