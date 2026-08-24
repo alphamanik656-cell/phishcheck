@@ -1,7 +1,9 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const analyzeRouter = require('./routes/analyze');
+const { currentModelName } = require('./services/llm');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -15,8 +17,11 @@ app.use(cors({
 
 app.use(express.json({ limit: '1mb' }));
 
+// Serve the frontend from the same server/origin — one deployable service
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', model: process.env.OLLAMA_MODEL || 'llama3.2' });
+  res.json({ status: 'ok', model: currentModelName() });
 });
 
 app.use('/api', analyzeRouter);
@@ -28,6 +33,6 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`PhishCheck backend running on http://localhost:${PORT}`);
-  console.log(`Using Ollama model: ${process.env.OLLAMA_MODEL || 'llama3.2'}`);
+  console.log(`Using model: ${currentModelName()}`);
   console.log(`Accepting requests from: ${FRONTEND_URL}`);
 });

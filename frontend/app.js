@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3002';
+// Same-origin by default — the backend serves this frontend directly.
+// Override only if you're running the frontend from a separate static server.
+const API_URL = '';
 
 const emailInput = document.getElementById('emailInput');
 const analyzeBtn = document.getElementById('analyzeBtn');
