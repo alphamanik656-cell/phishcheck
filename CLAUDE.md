@@ -98,7 +98,7 @@ Open http://localhost:3002 — the backend serves the frontend at the same addre
 ## AI Model
 
 - **Local dev:** `llama3.2` via Ollama (free, no API key, offline) — `POST http://localhost:11434/api/chat`
-- **Hosted deploy:** Groq (free tier) — OpenAI-compatible `POST https://api.groq.com/openai/v1/chat/completions`, default model `llama-3.3-70b-versatile`
+- **Hosted deploy:** Groq (free tier) — OpenAI-compatible `POST https://api.groq.com/openai/v1/chat/completions`, default model `openai/gpt-oss-120b` (Groq deprecated its standalone Llama chat models; gpt-oss-120b is the current best fit — large context, structured-output support)
 - Selection logic lives in `services/llm.js`: Groq if `GROQ_API_KEY` is set, Ollama otherwise
 - **Temperature:** 0.2 (low — keeps the red-flag list factually grounded in the quoted text)
 

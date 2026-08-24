@@ -29,7 +29,7 @@ Edit `prompts/phishing.js`. Exports `SYSTEM_PROMPT` (string) and `buildUserPromp
 | `OLLAMA_URL` | http://localhost:11434 | Ollama API base URL (local dev) |
 | `OLLAMA_MODEL` | llama3.2 | Ollama text model name (local dev) |
 | `GROQ_API_KEY` | — | If set, switches the app to Groq (hosted deployments) |
-| `GROQ_MODEL` | llama-3.3-70b-versatile | Groq model name |
+| `GROQ_MODEL` | openai/gpt-oss-120b | Groq model name |
 | `FRONTEND_URL` | http://localhost:8080 | CORS allowed origin (only matters if frontend is served separately) |
 
 ## Error Handling
